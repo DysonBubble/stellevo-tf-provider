@@ -36,7 +36,7 @@ ARG TF_PROVIDER_REPO_DIR
 COPY --from=generation_base "$GOPATH" "$GOPATH"
 
 # Copy all the Go code into specified folder within provider repository
-COPY "common/generation/*.go" "$GOPATH/terraform-provider-${TF_PROVIDER_NAME}/${TF_PROVIDER_REPO_DIR}/"
+COPY "generation/*.go" "$GOPATH/terraform-provider-${TF_PROVIDER_NAME}/${TF_PROVIDER_REPO_DIR}/"
 WORKDIR "$GOPATH/terraform-provider-${TF_PROVIDER_NAME}/${TF_PROVIDER_REPO_DIR}"
 # Build the program to generate the files and run it. Store the generated output as files in /outputs folder (they will be copied out from image later in the pipeline)
 RUN go build -o api_generator *.go \
