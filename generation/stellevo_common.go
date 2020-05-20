@@ -30,7 +30,7 @@ func DoMain(generationKind string, provider string, resources map[string]*schema
 }
 
 func GetResourceDictionary(resources map[string]*schema.Resource, dataSources map[string]*schema.Resource) map[string]*schema.Resource {
-	if os.Args[2] == "resource" {
+	if os.Args[3] == "resource" {
 		return resources
 	} else {
 		return dataSources
@@ -38,7 +38,7 @@ func GetResourceDictionary(resources map[string]*schema.Resource, dataSources ma
 }
 
 func GetResourceName(resourcesName string, dataSourcesName string) string {
-	if os.Args[2] == "resource" {
+	if os.Args[3] == "resource" {
 		return resourcesName
 	} else {
 		return dataSourcesName
